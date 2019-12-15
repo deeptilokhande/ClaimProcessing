@@ -33,10 +33,11 @@ public class ClaimsResourceController {
 	public ResponseEntity<List<Claims>>  getAllClaims(@RequestParam(value="page",defaultValue="1") int page,
 			@RequestParam(value="limit",defaultValue="5") int limit) {
 		List<Claims> list =repo.findAll();
+
+		//list.stream().forEach(System.out::println);
 		Iterator<Claims> i = list.iterator();
 		int count=0;
 		while(i.hasNext()) {
-			
 			count++;
 			Claims c =   i.next();
 			if(count>limit) {
